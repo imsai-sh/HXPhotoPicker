@@ -486,7 +486,7 @@ open class EditorViewController: HXBaseViewController {
         view.addSubview(brushSizeView)
         view.addSubview(filtersView)
         view.addSubview(filterEditView)
-        view.addSubview(rotateScaleView)
+//        view.addSubview(rotateScaleView)
         if !config.cropSize.aspectRatios.isEmpty {
             view.addSubview(ratioToolView)
             for aspectRatio in config.cropSize.aspectRatios
@@ -511,10 +511,13 @@ open class EditorViewController: HXBaseViewController {
             view.addSubview(drawFinishButton)
         }
         
-        view.addSubview(leftRotateButton)
-        view.addSubview(rightRotateButton)
-        view.addSubview(mirrorHorizontallyButton)
-        view.addSubview(mirrorVerticallyButton)
+        //sai
+
+//                view.addSubview(leftRotateButton)
+//        view.addSubview(rightRotateButton)
+//        view.addSubview(mirrorHorizontallyButton)
+//        view.addSubview(mirrorVerticallyButton)
+        
         
         if !config.cropSize.maskList.isEmpty {
             view.addSubview(maskListButton)

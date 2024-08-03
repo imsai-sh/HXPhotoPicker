@@ -576,6 +576,7 @@ extension EditorViewController: EditorToolsViewDelegate {
         if !config.cropSize.aspectRatios.isEmpty {
             ratioToolView.isHidden = false
         }
+        //sai
         rotateScaleView.isHidden = false
         resetButton.isHidden = false
         leftRotateButton.isHidden = false
