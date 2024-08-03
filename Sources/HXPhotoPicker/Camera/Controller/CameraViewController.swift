@@ -498,13 +498,13 @@ extension CameraViewController {
     }
     
     func addSwithCameraButton() {
-        view.layer.addSublayer(topMaskLayer)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: .imageResource.camera.switchCamera.image,
-            style: .plain,
-            target: self,
-            action: #selector(didSwitchCameraClick)
-        )
+//        view.layer.addSublayer(topMaskLayer)
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(
+//            image: .imageResource.camera.switchCamera.image,
+//            style: .plain,
+//            target: self,
+//            action: #selector(didSwitchCameraClick)
+//        )
     }
 }
 #endif
