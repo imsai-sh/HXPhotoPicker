@@ -499,12 +499,19 @@ extension CameraViewController {
     
     func addSwithCameraButton() {
 //        view.layer.addSublayer(topMaskLayer)
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(
-//            image: .imageResource.camera.switchCamera.image,
-//            style: .plain,
-//            target: self,
-//            action: #selector(didSwitchCameraClick)
-//        )
+//        let label = UILabel()
+//        label.text = "请拍摄想要绑定视频的照片"
+//        label.font = .preferredFont(forTextStyle: .callout)
+//        if #available(iOS 13.0, *) {
+//            label.textColor = .white.withAlphaComponent(0.8) // 设置文本颜色
+//        }
+//        label.textAlignment = .center
+//        label.numberOfLines = 1 // 设置 line limit 为 1
+//        label.adjustsFontSizeToFitWidth = true // 超出边界时自动缩小
+//        label.minimumScaleFactor = 0.7 // 设置缩小比例为 0.7
+//        label.sizeToFit() // 调整尺寸以适应内容
+////        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: label)
+//        navigationItem.titleView = label
     }
 }
 #endif

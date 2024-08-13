@@ -256,6 +256,8 @@ public extension EditorConfiguration {
     
     struct CropSize {
         
+        public var tipText:String? = nil
+        
         /// The line color when the angular scale is swiped
         /// 角度刻度滑动时的线条颜色
         public var angleScaleColor: UIColor = "#FDCC00".hx.color

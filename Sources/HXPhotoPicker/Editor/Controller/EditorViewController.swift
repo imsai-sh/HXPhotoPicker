@@ -72,6 +72,11 @@ open class EditorViewController: HXBaseViewController {
     var rightRotateButton: UIButton!
     var mirrorHorizontallyButton: UIButton!
     var mirrorVerticallyButton: UIButton!
+    
+    
+    //sai
+    var cropTipText:UILabel!
+    
     var maskListButton: UIButton!
     var scaleSwitchView: UIView!
     var scaleSwitchLeftBtn: UIButton!
@@ -249,6 +254,21 @@ open class EditorViewController: HXBaseViewController {
         leftRotateButton.addTarget(self, action: #selector(didLeftRotateButtonClick(button:)), for: .touchUpInside)
         leftRotateButton.alpha = 0
         leftRotateButton.isHidden = true
+        
+        //sai
+        cropTipText = UILabel()
+//        cropTipText.text = "裁剪至照片的边框，让AR视频更好的贴合"
+        cropTipText.text = config.cropSize.tipText ?? ""
+        cropTipText.font = .preferredFont(forTextStyle: .callout)
+        if #available(iOS 13.0, *) {
+            cropTipText.textColor = .white.withAlphaComponent(0.8) // 设置文本颜色
+        }
+        cropTipText.numberOfLines = 1
+        cropTipText.adjustsFontSizeToFitWidth = true // 超出边界时自动缩小
+        cropTipText.minimumScaleFactor = 0.7 // 设置缩小比例为 0.7
+        // 设置文字对齐到左上角
+        cropTipText.textAlignment = .center // 水平左对齐
+        cropTipText.sizeToFit() // 调整尺寸以适应内容
         
         rightRotateButton = ExpandButton(type: .system)
         rightRotateButton.setImage(.imageResource.editor.crop.rotateRight.image, for: .normal)
@@ -517,6 +537,10 @@ open class EditorViewController: HXBaseViewController {
 //        view.addSubview(rightRotateButton)
 //        view.addSubview(mirrorHorizontallyButton)
 //        view.addSubview(mirrorVerticallyButton)
+        
+        if let _ = config.cropSize.tipText{
+            view.addSubview(cropTipText)
+        }
         
         
         if !config.cropSize.maskList.isEmpty {
@@ -944,6 +968,12 @@ open class EditorViewController: HXBaseViewController {
         if !UIDevice.isPad || config.buttonType == .bottom {
             leftRotateButton.y = rotateScaleView.y - leftRotateButton.height - 10
             leftRotateButton.x = UIDevice.leftMargin + 20
+            
+            //sai
+            cropTipText.x = leftRotateButton.x
+            cropTipText.y = leftRotateButton.y - 30
+            cropTipText.frame = CGRect(x: cropTipText.x, y: cropTipText.y, width: view.width - 50, height: 60)
+            
             rightRotateButton.centerY = leftRotateButton.centerY
             rightRotateButton.x = leftRotateButton.frame.maxX + 15
             
@@ -1019,6 +1049,11 @@ open class EditorViewController: HXBaseViewController {
         
         leftRotateButton.centerY = cancelButton.centerY
         leftRotateButton.x = cancelButton.frame.maxX + 15
+        
+        //sai
+        cropTipText.centerY = leftRotateButton.centerY
+        cropTipText.x = leftRotateButton.x
+        
         rightRotateButton.centerY = cancelButton.centerY
         rightRotateButton.x = leftRotateButton.frame.maxX + 15
         
