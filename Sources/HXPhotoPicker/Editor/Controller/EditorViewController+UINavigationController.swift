@@ -84,7 +84,9 @@ extension EditorViewController {
                 mirrorVerticallyButton.alpha = 0
                 mirrorHorizontallyButton.alpha = 0
                 maskListButton.alpha = 0
-                cropTipText.alpha = 0
+                if config.cropSize.tipText != nil {
+                    cropTipText.alpha = 0
+                }
             default:
                 break
             }

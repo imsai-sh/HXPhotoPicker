@@ -266,6 +266,8 @@ open class EditorViewController: HXBaseViewController {
         cropTipText.adjustsFontSizeToFitWidth = true // 超出边界时自动缩小
         cropTipText.minimumScaleFactor = 0.7 // 设置缩小比例为 0.7
         // 设置文字对齐到左上角
+        cropTipText.alpha = 0
+        cropTipText.isHidden = true
         cropTipText.textAlignment = .center // 水平左对齐
         cropTipText.sizeToFit() // 调整尺寸以适应内容
         
