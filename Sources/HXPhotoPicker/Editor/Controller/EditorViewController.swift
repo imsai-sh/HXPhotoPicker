@@ -257,7 +257,6 @@ open class EditorViewController: HXBaseViewController {
         
         //sai
         cropTipText = UILabel()
-//        cropTipText.text = "裁剪至照片的边框，让AR视频更好的贴合"
         cropTipText.text = config.cropSize.tipText ?? ""
         cropTipText.font = .preferredFont(forTextStyle: .callout)
         if #available(iOS 13.0, *) {

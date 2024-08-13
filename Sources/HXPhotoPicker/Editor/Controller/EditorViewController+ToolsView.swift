@@ -583,6 +583,9 @@ extension EditorViewController: EditorToolsViewDelegate {
         rightRotateButton.isHidden = false
         mirrorVerticallyButton.isHidden = false
         mirrorHorizontallyButton.isHidden = false
+        if config.cropSize.tipText != nil{
+            cropTipText.isHidden = false
+        }
         
         var isShowMaskList: Bool = true
         if let ratio = ratioToolView.selectedRatio?.ratio, (ratio.width < 0 || ratio.height < 0) {
@@ -595,6 +598,9 @@ extension EditorViewController: EditorToolsViewDelegate {
         UIView.animate(withDuration: 0.2) {
             if !self.config.cropSize.aspectRatios.isEmpty {
                 self.ratioToolView.alpha = 1
+            }
+            if config.cropSize.tipText != nil {
+                self.cropTipText.alpha = 1
             }
             self.rotateScaleView.alpha = 1
             self.resetButton.alpha = 1
@@ -626,6 +632,9 @@ extension EditorViewController: EditorToolsViewDelegate {
             if !self.config.cropSize.aspectRatios.isEmpty {
                 self.ratioToolView.alpha = 0
             }
+            if config.cropSize.tipText != nil {
+                self.cropTipText.alpha = 0
+            }
             self.rotateScaleView.alpha = 0
             self.resetButton.alpha = 0
             self.leftRotateButton.alpha = 0
@@ -639,6 +648,9 @@ extension EditorViewController: EditorToolsViewDelegate {
             if $0 {
                 if !self.config.cropSize.aspectRatios.isEmpty {
                     self.ratioToolView.isHidden = true
+                }
+                if config.cropSize.tipText != nil {
+                    self.cropTipText.isHidden = true
                 }
                 self.rotateScaleView.isHidden = true
                 self.resetButton.isHidden = true
